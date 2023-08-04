@@ -1,17 +1,11 @@
-let ladder = {
-  step: 0,
-  up: function () {
-    this.step++;
-    return this;
-  },
-  down: function () {
-    this.step--;
-    return this;
-  },
-  showStep: function () {
-    alert(this.step);
-    return this;
-  },
-};
+function extractPhoneNumber(input) {
+  const phoneNumberRegex =
+    /^(\+?380)[- ]?(\d{2})[- ]?(\d{3})[- ]?(\d{2})[- ]?(\d{2})$/;
+  const match = input.match(phoneNumberRegex);
 
-ladder.up().up().down().showStep();
+  if (match) {
+    return match.slice(1).join("").replace(/\s/g, "");
+  } else {
+    return null;
+  }
+}
