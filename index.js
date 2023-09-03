@@ -1,24 +1,42 @@
-let imageFiles = [
-  "1.jpg",
-  "2.jpg",
-  "3.jpg",
-  "4.jpg",
-  "5.jpg",
-  "6.jpg",
-  "7.jpg",
-  "8.jpg",
-  "9.jpg",
-];
+document.addEventListener("DOMContentLoaded", function () {
+  const registrationForm = document.getElementById("registrationForm");
+  const tableContainer = document.getElementById("tableContainer");
+  const saveButton = document.getElementById("saveButton");
 
-let randomIndex = Math.floor(Math.random() * imageFiles.length);
+  saveButton.addEventListener("click", function () {
+    const formData = new FormData(registrationForm);
+    let allFieldsFilled = true;
 
-let randomImageName = imageFiles[randomIndex];
+    for (const pair of formData.entries()) {
+      if (pair[1] === "") {
+        allFieldsFilled = false;
+        alert(`Поле "${pair[0]}" не може бути порожнім.`);
+        break;
+      }
+    }
 
-let imageUrl = "images/" + randomImageName;
+    if (allFieldsFilled) {
+      const table = document.createElement("table");
+      const tbody = document.createElement("tbody");
 
-let imgElement = document.createElement("img");
+      for (const pair of formData.entries()) {
+        const row = document.createElement("tr");
+        const keyCell = document.createElement("td");
+        const valueCell = document.createElement("td");
 
-imgElement.src = imageUrl;
-imgElement.alt = "Випадкове зображення";
+        keyCell.textContent = pair[0];
+        valueCell.textContent = pair[1];
 
-document.body.appendChild(imgElement);
+        row.appendChild(keyCell);
+        row.appendChild(valueCell);
+        tbody.appendChild(row);
+      }
+
+      table.appendChild(tbody);
+      tableContainer.innerHTML = "";
+      tableContainer.appendChild(table);
+
+      registrationForm.style.display = "none";
+    }
+  });
+});

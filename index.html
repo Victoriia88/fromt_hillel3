@@ -3,9 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HomeWork22</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>HomeWork29</title>
   </head>
   <body>
+    <h1>Форма реєстрації</h1>
+    <form id="registrationForm">
+      <label for="firstName">Ім'я:</label>
+      <input type="text" id="firstName" name="Ім'я" /><br />
+
+      <label for="lastName">Прізвище:</label>
+      <input type="text" id="lastName" name="Прізвище" /><br />
+
+      <label for="birthdate">Дата народження:</label>
+      <input type="date" id="birthdate" name="Дата народження" /><br />
+
+      <label>Стать:</label>
+      <input type="radio" id="male" name="Стать" value="Чоловік" />
+      <label for="male">Чоловік</label>
+      <input type="radio" id="female" name="Стать" value="Жінка" />
+      <label for="female">Жінка</label><br />
+
+      <label for="city">Місто:</label>
+      <select id="city" name="Місто">
+        <option value="Київ">Київ</option>
+        <option value="Львів">Львів</option>
+        <option value="Харків">Харків</option>
+        <option value="Одеса">Одеса</option>
+        <option value="Інше місто">Інше місто</option></select
+      ><br />
+
+      <label for="address">Адреса:</label>
+      <textarea id="address" name="Адреса"></textarea><br />
+
+      <label>Мови, якими володієте:</label>
+      <input
+        type="checkbox"
+        id="english"
+        name="Іноземна мова"
+        value="Англійська"
+      />
+      <label for="english">Англійська</label>
+      <input
+        type="checkbox"
+        id="spanish"
+        name="Іноземна мова"
+        value="Іспанська"
+      />
+      <label for="spanish">Іспанська</label>
+      <input
+        type="checkbox"
+        id="french"
+        name="Іноземна мова"
+        value="Французька"
+      />
+      <label for="french">Французька</label><br />
+
+      <button type="button" id="saveButton">Зберегти</button>
+    </form>
+
+    <div id="tableContainer"></div>
+
     <script src="index.js"></script>
   </body>
 </html>
