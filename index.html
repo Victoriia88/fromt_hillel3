@@ -10,18 +10,26 @@
     <h1>Форма реєстрації</h1>
     <form id="registrationForm">
       <label for="firstName">Ім'я:</label>
-      <input type="text" id="firstName" name="Ім'я" /><br />
+      <input type="text" id="firstName" name="Ім'я" required /><br />
 
       <label for="lastName">Прізвище:</label>
-      <input type="text" id="lastName" name="Прізвище" /><br />
+      <input type="text" id="lastName" name="Прізвище" required /><br />
 
       <label for="birthdate">Дата народження:</label>
-      <input type="date" id="birthdate" name="Дата народження" /><br />
+      <input
+        type="text"
+        id="birthdate"
+        name="Дата народження"
+        required
+        pattern="\d{1,2}/\d{1,2}/\d{4}"
+        placeholder="dd/mm/yyyy"
+      />
+      <br />
 
       <label>Стать:</label>
-      <input type="radio" id="male" name="Стать" value="Чоловік" />
+      <input type="radio" id="male" name="Стать" value="Чоловік" required />
       <label for="male">Чоловік</label>
-      <input type="radio" id="female" name="Стать" value="Жінка" />
+      <input type="radio" id="female" name="Стать" value="Жінка" required />
       <label for="female">Жінка</label><br />
 
       <label for="city">Місто:</label>
@@ -34,7 +42,7 @@
       ><br />
 
       <label for="address">Адреса:</label>
-      <textarea id="address" name="Адреса"></textarea><br />
+      <textarea id="address" name="Адреса" required></textarea><br />
 
       <label>Мови, якими володієте:</label>
       <input
@@ -57,9 +65,16 @@
         name="Іноземна мова"
         value="Французька"
       />
-      <label for="french">Французька</label><br />
+      <label for="french">Французька</label>
+      <input
+        type="checkbox"
+        id="other"
+        name="Іноземна мова"
+        value="Інша або не володію"
+      />
+      <label for="french">Інша або не володію</label><br />
 
-      <button type="button" id="saveButton">Зберегти</button>
+      <button type="submit" id="saveButton">Зберегти</button>
     </form>
 
     <div id="tableContainer"></div>
